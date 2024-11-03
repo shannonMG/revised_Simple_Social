@@ -1,4 +1,8 @@
 // App.tsx
+
+import dotenv from 'dotenv';
+dotenv.config();
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/landingpage';
 import Login from './components/login';
