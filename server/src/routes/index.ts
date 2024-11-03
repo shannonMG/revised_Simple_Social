@@ -1,11 +1,10 @@
+// src/routes/index.ts
 import { Router } from 'express';
-import authRoutes from './auth-routes';
-import apiRoutes from './api/index';
-import { authenticateToken } from '../middleware/auth';
+import userRoutes from  '../routes/api/user-routes'
 
 const router = Router();
 
-router.use('/auth', authRoutes);
-router.use('/api', authenticateToken, apiRoutes);
+// Mount userRoutes at `/api`
+router.use('/api', userRoutes);
 
 export default router;

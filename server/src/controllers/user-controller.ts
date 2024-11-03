@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import  User  from '../models/user.js';
-
-
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import User from '../models/User';
 
 // GET /Users
 export const getAllUsers = async (_req: Request, res: Response) => {
@@ -77,5 +77,37 @@ export const deleteUser = async (req: Request, res: Response) => {
     }
   } catch (error: any) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+const JWT_SECRET = process.env.JWT_SECRET || 'your_secret_key'; // Replace with a secure secret in production
+
+// POST /login
+export const loginUser = async (req: Request, res: Response) => {
+  const { email, password } = req.body;
+
+  try {
+    // Find the user by email
+    const user = await User.findOne({ where: { email } });
+
+    // If user is not found, return an error
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid email or password' });
+    }
+
+    // Check if the password is valid
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(400).json({ message: 'Invalid email or password' });
+    }
+
+    // Generate a JWT token
+    const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1h' });
+
+    // Send the token to the client
+    res.status(200).json({ message: 'Login successful', token });
+  } catch (error: any) {
+    console.error('Login error:', error);
+    res.status(500).json({ message: 'An error occurred during login' });
   }
 };

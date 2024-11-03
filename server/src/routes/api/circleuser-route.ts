@@ -24,4 +24,4 @@ router.put('/:id', updateCircleUser);
 // DELETE /circleuser/:id - Delete a circleuser by id
 router.delete('/:id', deleteCircleUser);
 
-export { router as circleuserRouter };
+export default router;

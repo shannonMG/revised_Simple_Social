@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import userRoutes from './routes/userRoutes';
+import userRoutes from '../src/routes/api/user-routes';
 import sequelize from './config/database';
 
 const app = express();
@@ -13,7 +13,7 @@ sequelize.authenticate()
   .catch((error) => console.error('Error connecting to the database:', error));
 
 // Use user routes
-app.use('/users', userRoutes);
+app.use('/api', userRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
