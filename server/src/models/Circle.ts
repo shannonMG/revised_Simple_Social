@@ -42,12 +42,7 @@ Circle.init(
 
 );
 
-//Define association b/w circle and circleuser 
 
-  Circle.hasMany (CircleUser, {
-      foreignKey: 'circle_id', 
-      as: 'circleUsers',
-  });
   
 
 export default Circle;

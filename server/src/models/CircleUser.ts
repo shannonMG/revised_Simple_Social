@@ -45,11 +45,7 @@ CircleUser.init(
 
 );
 
-//Define association b.w the circleuser to circle.
-  CircleUser.belongsTo(Circle, {
-    foreignKey: 'circle_id',
-    as: 'circle',
-  });
+
 
 
 export default CircleUser;

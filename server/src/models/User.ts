@@ -62,10 +62,6 @@ User.beforeUpdate(async (user: User) => {
   }
 });
 
-//define association b/w users and circleuser
-User.hasMany(CircleUser, {
-  foreignKey: 'user_id',
-  as: 'circleUsers',
-});
+
 
 export default User;
