@@ -1,6 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import bcrypt from 'bcrypt';
 import sequelize from '../config/database';
+import CircleUser from './CircleUser';
 
 class User extends Model {
   public id!: number;
@@ -59,6 +60,12 @@ User.beforeUpdate(async (user: User) => {
   if (user.changed('password')) {
     user.password = await bcrypt.hash(user.password, 10);
   }
+});
+
+//define association b/w users and circleuser
+User.hasMany(CircleUser, {
+  foreignKey: 'user_id',
+  as: 'circleUsers',
 });
 
 export default User;
