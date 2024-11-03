@@ -13,7 +13,7 @@ const router = express.Router();
 router.get('/', getAllCircleUsers);
 
 // GET /circleuser/:id - Get a circleuser by id
-router.get('circleuser/:id', getCircleUsersById);
+router.get('/circleuser/:id', getCircleUsersById);
 
 // POST /circleuser - Create a new circleuser
 router.post('/', createCircleUser);
