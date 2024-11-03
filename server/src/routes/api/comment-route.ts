@@ -24,4 +24,4 @@ router.put('/:id', updatePostComment);
 // DELETE /comments/:commentid - Delete a comment from  by id
 router.delete('/:id', deletePostComment);
 
-export { router as postRouter };
+export default router;
