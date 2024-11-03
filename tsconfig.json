@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "target": "ES2020", // Modern JavaScript version
+      "module": "commonjs", // Module system for Node.js
+      "rootDir": "./", // Root directory for the project
+      "outDir": "./dist", // Output directory for compiled files
+      "strict": true, // Enable strict type-checking options
+      "esModuleInterop": true, // Enables compatibility with CommonJS modules (like dotenv)
+      "skipLibCheck": true, // Skips type checks on library files (helpful for node_modules)
+      "forceConsistentCasingInFileNames": true, // Enforces consistent casing in imports
+      "moduleResolution": "node", // Resolves modules to node_modules by default
+      "resolveJsonModule": true, // Allows importing .json files as modules
+      "allowSyntheticDefaultImports": true, // Supports default imports from CommonJS
+      "isolatedModules": true, // Enforces each file to be treated as a separate module
+      "jsx": "react" // JSX support if using React in the client
+    },
+    "include": ["server/**/*.ts", "client/**/*.ts", "client/**/*.tsx"], // Includes all TypeScript and JSX files in client and server folders
+    "exclude": ["node_modules", "dist"] // Excludes generated and dependency files
+  }
+  
