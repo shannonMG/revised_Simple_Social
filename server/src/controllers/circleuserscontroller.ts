@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { CircleUsers, CircleUsersFactory } from '../models/circleUsers.js';
+import  CircleUsers from '../models/CircleUser.js';
 
 // GET /circles/:circleid
 //TO DO: add a query to get the users--query to users table if needed
@@ -49,7 +49,7 @@ export const createCircleUser = async (req: Request, res: Response) => {
   const { user_id, circle_id } = req.body;
   try {
     const newCircleUser = await CircleUsers.create({ user_id, circle_id });
-    res.status(201).json();
+    res.status(201).json(newCircleUser);
   } catch (error: any) {
     res.status(400).json({ message: error.message });
   }
@@ -65,10 +65,10 @@ export const updateCircleUser = async (req: Request, res: Response) => {
       circleuser.user_id = user_id;
       circleuser.circle_id = circle_id;
     
-      await post.save();
+      await circleuser.save();
       res.json(circleuser);
     } else {
-      res.status(404).json({ message: 'Post not found' });
+      res.status(404).json({ message: 'Circleuser not found' });
     }
   } catch (error: any) {
     res.status(400).json({ message: error.message });
