@@ -1,6 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from '../config/database';
-import Circle from './circle';
+import Circle from './Circle';
 
 class CircleUser extends Model {}
 
