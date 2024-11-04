@@ -13,7 +13,7 @@ sequelize.authenticate()
   .catch((error) => console.error('Error connecting to the database:', error));
 
 // Use user routes
-app.use('/api', userRoutes);
+app.use('/api/users', userRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

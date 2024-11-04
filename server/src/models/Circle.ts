@@ -2,6 +2,7 @@ import { DataTypes, Model } from 'sequelize';
 import sequelize from '../config/database';
 import CircleUser from './CircleUser';
 
+
 class Circle extends Model {}
 
 Circle.init(
@@ -42,12 +43,6 @@ Circle.init(
 
 );
 
-//Define association b/w circle and circleuser 
 
-  Circle.hasMany (CircleUser, {
-      foreignKey: 'circle_id', 
-      as: 'circleUsers',
-  });
-  
 
 export default Circle;

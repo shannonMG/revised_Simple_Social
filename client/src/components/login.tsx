@@ -13,7 +13,7 @@ const Login: React.FC = () => {
     setError(null); // Reset error state
 
     try {
-      const response = await fetch('http://localhost:3000/api/login', { // Updated endpoint
+      const response = await fetch('http://localhost:3000/api/users/login', { // Updated endpoint
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

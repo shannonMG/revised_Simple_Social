@@ -1,43 +1,50 @@
-// src/components/Signup.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './loginandsignup.module.css';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [location, setLocation] = useState('');
-  const [timeZone, setTimeZone] = useState('');
+  const [time_zone, setTimeZone] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate(); // To redirect the user after signup
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Reset error message
-
+    setError(null); // Reset error state
     try {
-      const response = await fetch('http://localhost:3000/users/create', {
+      const response = await fetch('http://localhost:3000/api/users/create', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password, location, time_zone: timeZone }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          location,
+          time_zone,
+        }),
       });
-
+  
       const data = await response.json();
+  
       if (response.ok) {
-        localStorage.setItem('token', data.token); // Store the JWT in localStorage
-        alert('Signup successful!');
-        // Redirect or reset the form
-        setEmail('');
-        setPassword('');
-        setLocation('');
-        setTimeZone('');
-        window.location.href = '/home'; // Redirect after successful signup
+        // Store the JWT token
+        localStorage.setItem('token', data.token);
+        console.log("User created:", data);
+        // Redirect to the home page
+        navigate('/home');
       } else {
-        setError(data.message || 'Signup failed');
+        setError(data.message || 'Failed to create account');
+        console.error("Error:", data.message);
       }
     } catch (err) {
-      console.error('Error:', err);
-      setError('An error occurred. Please try again later.');
+      console.error("Error during sign-up:", err);
+      setError('An error occurred during sign-up. Please try again.');
     }
   };
+  
 
   return (
     <div className={styles.container}>
@@ -69,7 +76,7 @@ const Signup = () => {
           required
         />
         <select
-          value={timeZone}
+          value={time_zone}
           onChange={(e) => setTimeZone(e.target.value)}
           className={styles.input}
           required

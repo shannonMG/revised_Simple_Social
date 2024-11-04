@@ -1,7 +1,7 @@
 // App.tsx
 
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/landingpage';
@@ -18,6 +18,7 @@ const App = () => {
             <Route path="/" element={<LandingPage />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
+            
           </Routes>
         </div>
       </div>

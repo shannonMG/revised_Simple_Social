@@ -1,7 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import bcrypt from 'bcrypt';
 import sequelize from '../config/database';
-import CircleUser from './CircleUser';
+
 
 class User extends Model {
   public id!: number;
@@ -44,28 +44,12 @@ User.init(
   {
     sequelize,
     modelName: 'User',
-    tableName: 'Users',
+    tableName: 'users',
     timestamps: false,
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
   }
 );
 
-// Hash password before saving or updating
-User.beforeCreate(async (user: User) => {
-  user.password = await bcrypt.hash(user.password, 10);
-});
-
-User.beforeUpdate(async (user: User) => {
-  if (user.changed('password')) {
-    user.password = await bcrypt.hash(user.password, 10);
-  }
-});
-
-//define association b/w users and circleuser
-User.hasMany(CircleUser, {
-  foreignKey: 'user_id',
-  as: 'circleUsers',
-});
 
 export default User;
