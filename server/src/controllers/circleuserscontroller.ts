@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import  CircleUsers from '../models/CircleUser.js';
+import  CircleUsers from '../models/CircleUser';
 
 // GET /circles/:circleid
 //TO DO: add a query to get the users--query to users table if needed
