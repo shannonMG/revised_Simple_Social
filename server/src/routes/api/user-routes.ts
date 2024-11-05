@@ -4,6 +4,7 @@ import User from '../../models/User'; // Ensure the model path is correct
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+
 const router: Router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'your_secret_key'; // Replace with a secure key in production
 
@@ -79,8 +80,6 @@ const loginHandler: RequestHandler = async (req: Request, res: Response): Promis
 
 
 
-
-
 // Additional CRUD handlers
 const getAllUsers: RequestHandler = async (_req, res) => {
   try {
@@ -144,6 +143,36 @@ const deleteUser: RequestHandler = async (req, res) => {
   }
 };
 
+const getUserCircles: RequestHandler = async (req, res) => {
+  // try {
+    // const userId = req.user?.id;
+    console.log(req)
+
+//     if (!userId) {
+//       return res.status(400).json({ message: 'User ID is required' });
+//     }
+
+//     const userCircles = await CircleUser.findAll({
+//       where: { user_id: userId },
+//       include: [
+//         {
+//           model: Circle,
+//           as: 'Circle', // This alias should match the association alias in CircleUser model
+//         },
+//       ],
+//     });
+
+//     const circles = userCircles.map((circleUser) => circleUser.Circle);
+
+//     res.status(200).json({ circles });
+//   } catch (error: any) {
+//     console.error('Error retrieving user circles:', error);
+//     res.status(500).json({ message: error.message });
+//   }
+};
+
+
+
 // Define routes
 router.post('/create', registerHandler);
 router.post('/login', loginHandler);
@@ -151,5 +180,6 @@ router.get('/users', getAllUsers);
 router.get('/users/:id', getUserById);
 router.put('/users/:id', updateUser);
 router.delete('/users/:id', deleteUser);
+router.get('/home', getUserCircles);
 
 export default router;

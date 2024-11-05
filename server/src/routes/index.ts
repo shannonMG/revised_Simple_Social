@@ -6,5 +6,6 @@ const router = Router();
 
 // Mount userRoutes at `/api`
 router.use('/api', userRoutes);
+router.use('/')
 
 export default router;
