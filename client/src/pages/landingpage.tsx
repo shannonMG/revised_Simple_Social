@@ -1,6 +1,5 @@
 // src/pages/LandingPage.tsx
 import { Link, Outlet, useLocation } from 'react-router-dom';
-// import Footer from '../components/Footer';
 import '../../index.css';
 import styles from './LandingPage.module.css'; // Import the CSS module
 
@@ -23,10 +22,8 @@ const LandingPage = () => {
           </nav>
         </div>
       )}
-      {/* Render Login or Signup components */}
+      
       <Outlet />
-      {/* Footer */}
-      {/* <Footer className={styles.footer} /> */}
     </div>
   );
 };

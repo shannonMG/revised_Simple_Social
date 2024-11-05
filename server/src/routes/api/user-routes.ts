@@ -19,10 +19,10 @@ const registerHandler: RequestHandler = async (req, res) => {
       return; // Use a standalone return to indicate void
     }
 
-    // Hash the password before saving
+// Hash the password before saving
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create a new user
+// Create a new user
     const newUser = await User.create({
       email,
       password: hashedPassword,
@@ -30,10 +30,10 @@ const registerHandler: RequestHandler = async (req, res) => {
       time_zone,
     });
 
-    // Generate a JWT token
+// Generate a JWT token
     const token = jwt.sign({ id: newUser.id, email: newUser.email }, JWT_SECRET, { expiresIn: '1h' });
 
-    // Respond with the token
+// Respond with the token
     res.status(201).json({ message: 'User created', token });
   } catch (error) {
     console.error('Error creating user:', error);
@@ -78,78 +78,8 @@ const loginHandler: RequestHandler = async (req: Request, res: Response): Promis
 };
 
 
-
-
-
-// Additional CRUD handlers
-const getAllUsers: RequestHandler = async (_req, res) => {
-  try {
-    const users = await User.findAll({
-      attributes: { exclude: ['password'] } // Exclude password from the response
-    });
-    res.json(users);
-  } catch (error: any) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-const getUserById: RequestHandler = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const user = await User.findByPk(id, {
-      attributes: { exclude: ['password'] } // Exclude password from the response
-    });
-    if (user) {
-      res.json(user);
-    } else {
-      res.status(404).json({ message: 'User not found' });
-    }
-  } catch (error: any) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-const updateUser: RequestHandler = async (req, res) => {
-  const { id } = req.params;
-  const { email, password, location, time_zone } = req.body;
-  try {
-    const user = await User.findByPk(id);
-    if (user) {
-      user.email = email;
-      if (password) user.password = await bcrypt.hash(password, 10); // Hash password if updated
-      user.location = location;
-      user.time_zone = time_zone;
-      await user.save();
-      res.json(user);
-    } else {
-      res.status(404).json({ message: 'User not found' });
-    }
-  } catch (error: any) {
-    res.status(400).json({ message: error.message });
-  }
-};
-
-const deleteUser: RequestHandler = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const user = await User.findByPk(id);
-    if (user) {
-      await user.destroy();
-      res.json({ message: 'User deleted' });
-    } else {
-      res.status(404).json({ message: 'User not found' });
-    }
-  } catch (error: any) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
 // Define routes
 router.post('/create', registerHandler);
 router.post('/login', loginHandler);
-router.get('/users', getAllUsers);
-router.get('/users/:id', getUserById);
-router.put('/users/:id', updateUser);
-router.delete('/users/:id', deleteUser);
 
 export default router;
