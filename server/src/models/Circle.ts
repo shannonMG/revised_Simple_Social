@@ -16,20 +16,11 @@ Circle.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    permission_key: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
+   
+  
+      
     },
-    assignedUserId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'users',
-        key: 'id',
-      },
-      allowNull: true,
-    },
-  },
+  
   {
     sequelize,
     modelName: 'Circle',

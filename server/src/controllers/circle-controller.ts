@@ -54,38 +54,7 @@ export const createCircle = async (req: Request, res: Response) => {
   }
 };
 
-// PUT /circle/:id
-export const updateCircle = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const { name, permission_key, assignedUserId } = req.body;
-  try {
-    const circle = await Circle.findByPk(id);
-    if (circle) {
-      circle.name = name;
-      circle.permission_key = permission_key;
-      circle.assignedUserId = assignedUserId;
-      await circle.save();
-      res.json(circle);
-    } else {
-      res.status(404).json({ message: 'Circle not found' });
-    }
-  } catch (error: any) {
-    res.status(400).json({ message: error.message });
-  }
-};
 
-// DELETE /circle/:id
-export const deleteCircle = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  try {
-    const circle = await Circle.findByPk(id);
-    if (circle) {
-      await circle.destroy();
-      res.json({ message: 'Circle deleted' });
-    } else {
-      res.status(404).json({ message: 'Circle not found' });
-    }
-  } catch (error: any) {
-    res.status(500).json({ message: error.message });
-  }
-};
+
+
+
