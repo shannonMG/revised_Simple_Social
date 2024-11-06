@@ -11,7 +11,7 @@ const Signup = () => {
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate(); // To redirect the user after signup
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null); // Reset error state
     try {

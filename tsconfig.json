@@ -12,9 +12,9 @@
       "resolveJsonModule": true, // Allows importing .json files as modules
       "allowSyntheticDefaultImports": true, // Supports default imports from CommonJS
       "isolatedModules": true, // Enforces each file to be treated as a separate module
-      "jsx": "react" // JSX support if using React in the client
+      "jsx": "react-jsx", // JSX support if using React in the client
     },
     "include": ["server/**/*.ts", "client/**/*.ts", "client/**/*.tsx", "src/**/*"], // Includes all TypeScript and JSX files in client and server folders
-    "exclude": ["node_modules", "dist"] // Excludes generated and dependency files
+    "exclude": ["node_modules", "dist"], // Excludes generated and dependency files
   }
   
