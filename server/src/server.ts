@@ -2,10 +2,12 @@ import express from 'express';
 import cors from 'cors';
 import userRoutes from '../src/routes/api/user-routes';
 import sequelize from './config/database';
+// import axios from 'axios';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+// const response = axios.get('https://zenquotes.io/api/image/').then(response=>console.log(response));
 
 // Test the database connection
 sequelize.authenticate()
