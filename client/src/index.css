@@ -1,0 +1,88 @@
+:root {
+  /* Primary Colors */
+  --primary-color: #FF9F1C; /* Bright Orange */
+  --secondary-color: #FFBF69; /* Light Orange */
+  --background-color: #FFFFFF; /* White */
+  --accent-color: #2EC4B6; /* Teal */
+  
+  /* Complementary Colors */
+  --highlight-color: #CBF3F0; /* Light Blue */
+  --border-color: #2EC4B6; /* Same as accent for consistency */
+
+  /* Text Colors */
+  --text-primary: #333333; /* Dark gray for contrast */
+  --text-secondary: #594236; /* Subtle, muted brown for secondary text */
+
+  /* Button Colors */
+  --button-background: var(--primary-color);
+  --button-text: #FFFFFF; /* White text on buttons for contrast */
+  --button-hover: #FFBF69; /* Light Orange for hover state */
+
+  /* Border and Outline Colors */
+  --border-light: #FFBF69; /* Light Orange for softer borders */
+  --border-dark: #2EC4B6; /* Teal for accent borders */
+
+  /* Interactive Colors */
+  --link-color: #2EC4B6; /* Teal for links */
+  --link-hover-color: #FF9F1C; /* Bright Orange for hover effect */
+
+  /* Shadows and Highlights */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  --highlight-background: #CBF3F0; /* Light Blue for highlighted sections */
+}
+
+/* App.css or index.css */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;       /* Full viewport height */
+  padding: 20px;           /* Padding around the entire app */
+  box-sizing: border-box;
+  background-color: #f9f9f9; /* Optional: Set a background color */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;       /* Max width to limit content width */
+  padding: 20px;          /* Padding around the main content */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the content box */
+  background-color: #fff; /* Background color for content area */
+  border-radius: 8px;     /* Rounded corners for a polished look */
+}
+
+  
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif; /* You can adjust this as needed */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--secondary-color);
+  }
+  
+  .footer {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    padding: 1rem;
+    text-align: center;
+  }
