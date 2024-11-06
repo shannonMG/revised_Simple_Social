@@ -4,6 +4,7 @@ import LandingPage from './pages/landingpage';
 import HomePage from './pages/homepage';
 import Login from './components/login';
 import Signup from './components/signup';
+import ZenPage from './pages/zenpage';
 
 const App = () => {
   return (
@@ -20,6 +21,9 @@ const App = () => {
             {/* <Route path="circle2" element={<Circle2Page />} /> Circle 2 page */}
             {/* <Route path="circle3" element={<Circle3Page />} /> Circle 3 page */}
           </Route>
+       {/* Add the ZenPage route */}
+       <Route path="/zen" element={<ZenPage/>} />
+
       </Routes>
     </Router>
   );
