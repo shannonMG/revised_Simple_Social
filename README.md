@@ -3,11 +3,8 @@ SimpleSocial is an app to connect with people within your network.
 
 ## Description
 
-This is a full stack application that is built with React, Node.js., and sequelize. In this application, you are presented with a login to the Simple Socail App. . The user must enter both a valid username and password to access the app. If either username and/or password is invalid they are not allowed access to Simple Social. Valid user information is stored in the Users table of the SimpleSocial_DB. 
-When authenticated user is logged into the application and their token to access the site is stored into local storage. The user is then able to access the add circles, join circles, create new posts, edit, and add comments. When the user logs out their access token is removed from local storage and they are directed back to the login screen. 
-
-## Screenshots
-
+This is a full stack application that is built with React, Node.js., and sequelize. In this application, you are presented with a landing page to the Simple Social App. The user must first sign up and then use valid username and password to access the app. Valid user information is stored in the Users table of the SimpleSocial_DB. 
+When authenticated user is logged into the application.  The user is then able to view circles on the page. Clicking on a circle will direct you to another page with content related to the circle. 
 
 ## Installation
 
@@ -16,7 +13,7 @@ This project is build using React. To run and initiate the app the user must ins
  * `npm install vite --save-dev`
  * `npm install react react-dom`
  * `npm install bcrypt`
- *  `npm install sequelize`
+ * `npm install sequelize`
  * `npm install jsonwebtoken`
  
 
@@ -29,8 +26,8 @@ To run this project:
 * Run the command `npm start` (this may vary based on specifics in your `package.json` scripts). 
 
  To create a new user
-* Navigate to the Login page.
-* Select to Create a New User. 
+* Navigate to the Landing page.
+* Select to Sign Up 
 * Input all required Information.
 * Click Submit. 
 * (User is created) 
@@ -42,14 +39,9 @@ To Login:
 * (User is logged in and directed to the Home Page)
 
 From the Home page you can:
-* View existing circles that to which you belong. 
-* Click  to "Add A Circle", input circle name and save. 
-* Click  to "Join a Circle". If selected you are prompted to input applicable permission key to join circle and click "Join"
-* Click on circle and access the Post page. 
+* View circles on the home page.  
+* Click on zen circle and access the Zen page. 
 
-From the Post page:
-* You can add a post 
-* You can add comments to post. 
     
 
 
@@ -69,41 +61,11 @@ This project was quite challenging...
 * [Link to Simple Social Repo](https://github.com/shannonMG/revised_Simple_Social)
 
 
-* [Shannon's email]()
-* [Shuki's Email](mailto:kathuriashuki@gmail.com)
-
-
-## Tests
-
-Example Test Cases:
-
-On Login Page:  
-* Verify that the secret token is saved in local storage after logging in. 
-* Input valid credentials to ensure access to the Simple Social  page. 
-* Input invalid credentials and verify that you remain on the login page and receive an error message. 
-* Error message is displayed when trying to create user without all required inputs. 
-* Error message is displayed when trying to log in without all required inputs. 
+* [Shannon Mastrogiovanni's email](mailto:shannonmastrogiovanni@gmail.com )
+* [Shuki Kathuria's email](mailto:kathuriashuki@gmail.com)
 
 
 
-On Home page you see:
-* Circles to with ones you have joined and/or created. 
-* An Instructional Circle if you have not yet joined/created a circle. 
-
-When joining a circle:
-* Input invalid or blank permission key ensure you receive an error message that you cannot join the circle. 
-* Input valid permission key and you receive a message that join was successful and circle renders on home page
-
-When creating a circle:
-* Input all required inputs and save and you receive a message that circle was created and new circle renders on page. 
-* Try to create a circle without valid inputs and ensure you receive a message that inputs are required. 
-
-When clicking on Circle:
-* You are directed to Posts page
-* On Post page verify you can add posts and comments
-
-
-* Logout and ensure you are directed back to Screen with the token removed  from local storage.
 
 
 
