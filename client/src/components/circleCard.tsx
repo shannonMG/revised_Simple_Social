@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './CircleCard.module.css';
 
 interface CircleCardProps {
   image: string;
@@ -9,20 +10,20 @@ interface CircleCardProps {
 
 const CircleCard: React.FC<CircleCardProps> = ({ image, title, summary, circleLink }) => {
   return (
-    <div className="">
-      <div className="">
+    <div className={styles.circleCard}>
+      <div className={styles.circleCardInner}>
         {/* Front Side */}
-        <div className="">
-          <h3 className=""></h3>
-          <img src={image} alt={title} className="" />
+        <div className={styles.circleCardFront}>
+          <h3 className={styles.circleCardTitle}>{title}</h3>
+          <img src={image} alt={title} className={styles.circleCardImage} />
         </div>
 
         {/* Back Side */}
-        <div className="">
-          <h3 className=""></h3>
-          <p className=""></p>
-          <div className="">
-            <a href={circleLink} target="_blank" rel="noopener noreferrer" className={""}>
+        <div className={styles.circleCardBack}>
+          <h3 className={styles.circleCardTitleBack}>{title}</h3>
+          <p className={styles.circleCardSummary}>{summary}</p>
+          <div className={styles.circleCardLinks}>
+            <a href={circleLink} target="_blank" rel="noopener noreferrer" className={styles.circleCardLink}>
               Visit Circle
             </a>
           </div>

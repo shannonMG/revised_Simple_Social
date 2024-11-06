@@ -1,0 +1,134 @@
+
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+}
+
+
+
+.circleCardContainer {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.circleCard {
+  width: 250px;
+  height: 250px;
+  perspective: 1000px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 50%; /* Make the card circular */
+  box-shadow: var(--box-shadow);
+  transition: box-shadow var(--transition-duration) var(--transition-ease);
+}
+
+.circleCard:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Slightly elevated shadow on hover */
+}
+
+.circleCardInner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s var(--transition-ease);
+  transform-style: preserve-3d;
+  position: relative;
+  border-radius: 50%; /* Maintain circular shape on hover */
+}
+
+.circleCard:hover .circleCardInner {
+  transform: rotateY(180deg);
+}
+
+.circleCardFront,
+.circleCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 50%; /* Circular shape for front and back */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* Front of the Card */
+.circleCardFront {
+  background-color: var(--accent-color); /* Adjust to your theme color */
+  color: var(--background-color); /* Text color for contrast */
+}
+
+/* Back of the Card */
+.circleCardBack {
+  background-color: var(--primary-color); /* Adjust to your theme color */
+  color: var(--secondary-text-color); /* Text color for contrast */
+  transform: rotateY(180deg); /* Starts rotated for flip effect */
+  gap: 5px;
+  text-align: center;
+}
+
+.circleCardImage {
+  max-width: 70%; /* Resize to fit within the circular container */
+  max-height: 70%;
+  object-fit: contain;
+  border-radius: 50%; /* Circular image */
+}
+
+/* Title on the Front of the Card */
+.circleCardTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--background-color); /* Ensure text is visible against background */
+}
+
+/* Title on the Back of the Card */
+.circleCardTitleBack {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--background-color); /* Ensure text is visible against background */
+}
+
+.circleCardSummary {
+  font-weight: normal;
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: var(--background-color); /* Ensure text is visible */
+}
+
+.circleCardLinks {
+  display: flex;
+  gap: 15px;
+}
+
+.circleCardLink {
+  color: var(--highlight-color); /* Adjust highlight color for theme */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition-duration) var(--transition-ease);
+}
+
+.circleCardLink:hover {
+  color: var(--secondary-color); /* Adjust hover color for theme */
+}
+
+/* Optional heading style */
+.heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary-text-color);
+  margin-bottom: 20px;
+}
