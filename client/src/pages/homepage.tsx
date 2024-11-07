@@ -2,6 +2,7 @@
 import React from 'react';
 import CircleCard from '../components/circleCard';
 import styles from '../components/CircleCard.module.css'; // Import styles for layout
+import {Link} from 'react-router-dom';
 
 // // Import images
 import zenImage from '../assets/zen.png';
@@ -13,12 +14,15 @@ const HomePage: React.FC = () => {
     <div className={styles.pageContainer}>
       <h2 className={styles.heading}>Featured Circles:</h2>
       <div className={styles.circleCardContainer}>
+        
+        <Link to ="/zen">
         <CircleCard 
           image={zenImage}
           title="Zen Circle"
           summary="Having a tough day? Join this circle for a pick-me-up."
           circleLink="https://github.com/shannonMG/prework-study-guide"
         />
+        </Link>
         <CircleCard 
           image={artImage}
           title="Art Circle"

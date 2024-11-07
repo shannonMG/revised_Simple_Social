@@ -4,28 +4,25 @@ import HomePage from './pages/homepage';
 import Login from './components/login';
 import Signup from './components/signup';
 import Header from './components/Header';
+import ZenPage from './pages/zenpage';
 
 const App = () => {
   return (
     <Router>
-    <div className="app"> {/* Add the main app div here */}
-      <Header />
-      
+      <div className="app">
+        <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
 
           {/* Routes after login */}
-          <Route path="/home" element={<HomePage />}> 
-            {/* <Route path="circle1" element={<Circle1Page />} /> Circle 1 page */}
-            {/* <Route path="circle2" element={<Circle2Page />} /> Circle 2 page */}
-            {/* <Route path="circle3" element={<Circle3Page />} /> Circle 3 page */}
-          </Route>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/zen" element={<ZenPage />} /> {/* Define /zen at the top level */}
         </Routes>
-    </div>
-  </Router>
+      </div>
+    </Router>
   );
 };
-
 export default App;
+
