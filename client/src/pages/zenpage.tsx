@@ -1,4 +1,4 @@
-
+import React from 'react';
 import QuoteImage from '../components/zenImage' ; 
 
 const ZenPage = () => {
