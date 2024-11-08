@@ -9,15 +9,18 @@ export const authenticateToken: RequestHandler = (req: Request, res: Response, n
 
     if (!token) {
         res.status(401).json({ message: 'Access denied. No token provided.' });
-        return; // Stop further execution
+        return;
     }
 
+    // Verify the token
     jwt.verify(token, JWT_SECRET, (err, decoded) => {
         if (err) {
             res.status(403).json({ message: 'Invalid token.' });
-            return; // Stop further execution
+            return;
         }
+
+        // Attach the decoded payload to the request object
         req.user = decoded as string | JwtPayload;
-      
-        next(); // Call next without returning
+        next();
+    });
 };
