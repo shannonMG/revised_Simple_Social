@@ -1,7 +1,7 @@
 // src/pages/LandingPage.tsx
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import '../../index.css';
-import styles from './LandingPage.module.css'; // Import the CSS module
+import styles from './landingpage.module.css'; // Import the CSS module
 
 
 
