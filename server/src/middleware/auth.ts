@@ -3,7 +3,8 @@ import jwt, { JwtPayload } from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_default_secret_key';
 
-export const authenticateToken: RequestHandler = (req: Request, res: Response, next: NextFunction) => {
+
+export const authenticateToken: RequestHandler = (req: Request, res: Response, next: NextFunction): void => {
     const token = req.headers.authorization?.split(' ')[1];
 
     if (!token) {
@@ -17,6 +18,6 @@ export const authenticateToken: RequestHandler = (req: Request, res: Response, n
             return; // Stop further execution
         }
         req.user = decoded as string | JwtPayload;
+      
         next(); // Call next without returning
-    });
 };
