@@ -7,6 +7,7 @@
         "build": "tsc -b && vite build",
         "server": "node dist/server.js",
         "start": "npm run build && npm run server",
+        "start:dev":"concurrently \"npm run server:dev\" \"wait-on tcp:3001 && npm run client:dev\"",
         "server:dev": "nodemon --watch './**/*.ts' --exec ts-node server/src/server.ts",
         "client:build": "npm run build --prefix client",
         "client:dev": "vite --config client/vite.config.ts",

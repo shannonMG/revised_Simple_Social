@@ -24,7 +24,7 @@ app.use('/api/users', userRoutes);
 
 
 // Ensure the server is listening on `0.0.0.0` to bind to all network interfaces
-const PORT = parseInt(process.env.PORT || '3000', 10);
+const PORT = parseInt(process.env.PORT || '3001', 10);
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server is running on http://0.0.0.0:${PORT}`);
