@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-      "target": "ES2020", // Modern JavaScript version
-      "module": "commonjs", // Module system for Node.js
+      "target": "esnext", // Modern JavaScript version
+      "module": "esnext", // Module system for Node.js
       "rootDir": "./", // Root directory for the project
       "outDir": "./dist", // Output directory for compiled files
       "strict": true, // Enable strict type-checking options
@@ -12,6 +12,10 @@
       "resolveJsonModule": true, // Allows importing .json files as modules
       "allowSyntheticDefaultImports": true, // Supports default imports from CommonJS
       "isolatedModules": true, // Enforces each file to be treated as a separate module
+      "jsx": "react-jsx" // JSX support if using React in the client
+    },
+    "include": ["server/**/*.ts", "client/**/*.ts", "client/**/*.tsx", "src/**/*", "vite.config.ts"], // Includes all TypeScript and JSX files in client and server folders
+    "exclude": ["node_modules", "dist"] // Excludes generated and dependency files
       "jsx": "react-jsx", // JSX support if using React in the client
     },
     "include": ["server/**/*.ts", "client/**/*.ts", "client/**/*.tsx", "src/**/*"], // Includes all TypeScript and JSX files in client and server folders
