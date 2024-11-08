@@ -2,7 +2,7 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import '../../index.css';
 import styles from './LandingPage.module.css'; // Import the CSS module
-import React from 'react';
+
 
 
 const LandingPage = () => {
